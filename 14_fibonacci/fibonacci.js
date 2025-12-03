@@ -1,6 +1,25 @@
-const fibonacci = function() {
+const fibonacci = function(num) {
+    if (typeof num !== "number"){
+        num = parseInt(num);
+    }
+    if (num < 0) return "OOPS";
+    if (num == 0) return 0;
+    if (num == 1) return 1;
 
+    let result = 0;
+    let first = 0;
+    let second = 1;
+
+    for (let i = 2; i <= num; i++){
+        result = first + second;
+        first = second;
+        second = result;
+    }
+
+
+    return result;
 };
+
 
 // Do not edit below this line
 module.exports = fibonacci;
